@@ -1,0 +1,12 @@
+﻿{
+  "ConnectionStrings": {
+    "Redis": "192.168.10.222:6379",
+    "KenData": "mongodb://root:_sys31UC@192.168.10.222:27017"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
