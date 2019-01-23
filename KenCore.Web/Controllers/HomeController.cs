@@ -19,7 +19,7 @@ namespace KenCore.Web.Controllers
         public async Task<IActionResult> Index()
         {
             _redisCatch.Set("111", "222");
-            await _userService.CreateUser(new Ken.Models.User()
+            await _userService.CreateUser(new Ken.Models.User.KenUser()
             {
                 RealName = "jacky.zhang"
             });

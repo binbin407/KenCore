@@ -1,4 +1,5 @@
 ﻿using Ken.Models;
+using Ken.Models.User;
 using KenCore.Cache;
 using KenCore.EF.Repository;
 using log4net;
@@ -20,7 +21,7 @@ namespace Ken.Service
             _userRepository = userRepository;
         }
 
-        public async Task<User> CreateUser(User model)
+        public async Task<KenUser> CreateUser(KenUser model)
         {
             try
             {
@@ -33,7 +34,7 @@ namespace Ken.Service
             }
         }
 
-        public User FirstOrDefaultAsync(int id)
+        public KenUser FirstOrDefaultAsync(int id)
         {
             return _userRepository.GetById(id);
         }

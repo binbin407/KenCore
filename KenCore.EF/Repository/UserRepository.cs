@@ -1,4 +1,5 @@
 ﻿using Ken.Models;
+using Ken.Models.User;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace KenCore.EF.Repository
             _dbContextFactory = dbContextFactory;
         }
 
-        public User GetById(int id)
+        public KenUser GetById(int id)
         {
             using (var context = _dbContextFactory.Create())
             {
@@ -22,7 +23,7 @@ namespace KenCore.EF.Repository
             }
         }
 
-        public async Task<User> InsertAsync(User user)
+        public async Task<KenUser> InsertAsync(KenUser user)
         {
             using (var context = _dbContextFactory.Create())
             {
