@@ -3,6 +3,7 @@ using KenCore.Cache;
 using KenCore.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace KenCore.Web.Controllers
 {
@@ -15,14 +16,13 @@ namespace KenCore.Web.Controllers
             _redisCatch = redisCatch;
             _userService = userService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             _redisCatch.Set("111", "222");
-            //await _userService.InsertAsync(new Ken.Models.User()
-            //{
-            //    RealName = "jacky.zhang",
-            //    Birth = DateTime.Now
-            //});
+            await _userService.CreateUser(new Ken.Models.User()
+            {
+                RealName = "jacky.zhang"
+            });
             var user = _userService.FirstOrDefaultAsync(1);
             ViewBag.Name = user.RealName;
             return View();

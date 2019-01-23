@@ -1,5 +1,6 @@
 ﻿using Ken.Models;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace KenCore.EF.Repository
 {
@@ -19,6 +20,16 @@ namespace KenCore.EF.Repository
                 var dbEntity = context.Users.FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
                 return dbEntity != null ? dbEntity : null;
             }
+        }
+
+        public async Task<User> InsertAsync(User user)
+        {
+            using (var context = _dbContextFactory.Create())
+            {
+                var result = await context.Users.AddAsync(user);
+                await context.SaveChangesAsync();
+            }
+            return user;
         }
     }
 }

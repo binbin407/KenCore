@@ -17,8 +17,13 @@ namespace KenCore.EF
 
             builder.Entity<User>()
                 .ToTable("User");
+
+            builder.Entity<FilmMaker>().ToTable("FilmMaker");
+            builder.Entity<FilmMakerPhone>().ToTable("FilmMakerPhone");
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<FilmMaker> FilmMakers { get; set; }
+        public DbSet<FilmMakerPhone> FilmMakerPhones { get; set; }
     }
 }
